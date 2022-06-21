@@ -1,0 +1,1328 @@
+<html>
+
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <title>色相環</title>
+        <style>
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+                .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                padding: 12px 16px;
+                z-index: 1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            body {
+                background-color: rgb(237, 237, 237);
+                }
+            .Color {
+                height: 180;
+                width: 180;
+            }
+    
+            td {
+                height: 150;
+                width: 60;
+            }
+        </style>
+    </head>
+    <nav class="navbar navbar-expand-sm justify-content-center" style="background-color: #2e2e2e;">
+        <a class="navbar-brand" style="font-size: 50px; color:rgb(255, 255, 255)" >伊登十二色環配色x運算思維</a>
+        <tr></tr>
+      </nav>
+
+    <body>
+        <div class="dropdown">
+            <span>設計團隊</span>
+            <div class="dropdown-content">
+            <p>
+                F1046005  徐翎嫣
+                F1006007  莊沂安
+                F1006011  李晏婷
+                F1006027  吳秉蓉
+                F1006040  柯沁榆
+                </p>
+            </div>
+          </div>
+
+        <div class="sector"></div>
+        <div class="container">
+    
+            </br>
+            <div class="row">
+                <div class="col">
+                    
+                    <button class="Color btn btn-outline-primary" id="RedBtn" style="border: 35px solid #e42421;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(285deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="ORedBtn" style="border: 35px solid #eb621f;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(255deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="OrangeBtn" style="border: 35px solid #f18e1c;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(225deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="OYellowBtn" style="border: 35px solid #fdc60c;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(195deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="YellowBtn" style="border: 35px solid #f4e600;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(165deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="YGreenBtn" style="border: 35px solid #8dbb25;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(135deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="GreenBtn" style="border: 35px solid #008e5a;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(105deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="GBlueBtn" style="border: 35px solid #0896bb;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(75deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="BlueBtn" style="border: 35px solid #2b70b0;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(45deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="PBuleBtn" style="border: 35px solid #434f99;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(15deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="PurpleBtn" style="border: 35px solid #6d398b;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(345deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="Color btn btn-outline-primary" id="BPurleBtn" style="border: 35px solid #c5047c;background-color: transparent;border-radius: 50%;clip-path: polygon(50% 50%, 20% 100%, 50% 100%);transform: rotate(315deg);position: absolute;top: 18%;left: 15%;"></button>
+                    <button class="btn btn-outline-primary" id="BlackBtn" style="background-color: #000000;border: 1px solid #d4d4d4;height: 70;width: 70;position: absolute;top: 30%;left: 30%;width: 35px;height: 85px;outline:none;"></button>
+                    <button class="btn btn-outline-primary" id="WhiteBtn" style="background-color: #FFFFFF;border: 1px solid #d4d4d4;height: 70;width: 70;position: absolute;top: 19%;left: 30%;width: 35px;height: 85px;outline:none;"></button>
+                </div>
+            </div>
+    
+    
+    
+    
+    
+    
+            </br>
+            </br>
+    
+            <div class="row">
+                <div class="col">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-dark me-md-2" id="one">
+                        單色配色
+                    </button>
+                    <button class="btn btn-outline-dark me-md-2" id="two">
+                        雙色配色
+                    </button>
+                    <button class="btn btn-outline-dark me-md-2" id="mix">
+                        三色配色
+                    </button>
+                    <button class="btn btn-outline-dark" id="FourMix">
+                        四色配色
+                    </button>
+    
+                    <img style="position: absolute;top: 19.2%;left:15.7%;clip-path: circle(35% at 50% 50%);" src ="https://scontent.frmq2-2.fna.fbcdn.net/v/t39.30808-6/289399717_179231234522474_40165633908946646_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=HEU_qJRXxxIAX-N-IqX&_nc_ht=scontent.frmq2-2.fna&oh=00_AT8lGFalD4pxo6rzf4PD3N1PToNeFoRjbTqMKpfIU_5MTg&oe=62B4A973"height="162" width="162">
+    
+                </div>
+            </div>
+            </div>
+    
+            </br>
+            </br>
+    
+            <div class="row" style="display: none;" id="TwoBar">
+                <div class="col">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-dark" id="2jo4au04nk4">
+                        對面色
+                    </button>
+                    <button class="btn btn-outline-dark" id="q61u0nk4">
+                        旁邊色
+                    </button>
+                    <button class="btn btn-outline-dark" id="vu62jo4au04">
+                        斜對面
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+            <div class="row" style="display: none;" id="MixBar">
+                <div class="col">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-dark" id="n0rul3vu">
+                        正三角形
+                    </button>
+                    <button class="btn btn-outline-dark" id="23uln0rul3vu6">
+                        等腰銳角三角形
+                    </button>
+                    <button class="btn btn-outline-dark" id="56rul3n0vul3vu6">
+                        等腰直角三角形
+                    </button>
+                    <button class="btn btn-outline-dark" id="2jp4rul3n0rul3vu6">
+                        等腰鈍角三角形
+                    </button>
+                    <button class="btn btn-outline-dark" id="vuxup6nk4n0nk4">
+                        相鄰色三色
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+            <div class="row" style="display: none;" id="FourBar">
+                <div class="col">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-dark" id="dj0t6zvu6">
+                        寬長方形
+                    </button>
+                    <button class="btn btn-outline-dark" id="593t6zvu6">
+                        窄長方形
+                    </button>
+                    <button class="btn btn-outline-dark" id="yjo4vul3wuvu6">
+                        最小梯形
+                    </button>
+                    <button class="btn btn-outline-dark" id="yjo4284wuvu6">
+                        最大梯形
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+            </br>
+            </br>
+    
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="one NewOne TOne"></td>
+                                <td class="two NewThree TTwo"></td>
+                                <td class="one NewTwo TThree"></td>
+                                <td class="two NewOne TFour"></td>
+                            </tr>
+                            <tr>
+                                <td class="two NewThree TTWo"></td>
+                                <td class="one NewTwo TThree"></td>
+                                <td class="two NewOne TFour"></td>
+                                <td class="one NewTwo TOne"></td>
+                            </tr>
+                            <tr>
+                                <td class="one NewTwo TThree"></td>
+                                <td class="two NewOne TFour"></td>
+                                <td class="one NewTwo TOne"></td>
+                                <td class="two NewThree TTwo"></td>
+                            </tr>
+                            <tr>
+                                <td class="two NewOne TFour"></td>
+                                <td class="one NewTwo TOne"></td>
+                                <td class="two NewThree TTwo"></td>
+                                <td class="one NewOne TThree"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+    
+    
+        </div>
+    
+    
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    </body>
+    
+    <script>
+        $("#RedBtn").click(function () {
+            $(".one").css("background-color", "#e42421");
+            $(".two").css("background-color", "#e42421");
+        });
+    
+        $("#ORedBtn").click(function () {
+            $(".one").css("background-color", "#eb621f");
+            $(".two").css("background-color", "#eb621f");
+    
+        });
+    
+        $("#OrangeBtn").click(function () {
+            $(".one").css("background-color", "#f18e1c");
+            $(".two").css("background-color", "#f18e1c");
+    
+        });
+    
+        $("#OYellowBtn").click(function () {
+            $(".one").css("background-color", "#fdc60c");
+            $(".two").css("background-color", "#fdc60c");
+    
+        });
+    
+        $("#YellowBtn").click(function () {
+            $(".one").css("background-color", "#f4e600");
+            $(".two").css("background-color", "#f4e600");
+    
+        });
+    
+        $("#YGreenBtn").click(function () {
+            $(".one").css("background-color", "#8dbb25");
+            $(".two").css("background-color", "#8dbb25");
+    
+        });
+    
+        $("#GreenBtn").click(function () {
+            $(".one").css("background-color", "#008e5a");
+            $(".two").css("background-color", "#008e5a");
+    
+        });
+    
+        $("#GBlueBtn").click(function () {
+            $(".one").css("background-color", "#0896bb");
+            $(".two").css("background-color", "#0896bb");
+    
+        });
+    
+        $("#BlueBtn").click(function () {
+            $(".one").css("background-color", "#2b70b0");
+            $(".two").css("background-color", "#2b70b0");
+    
+        });
+    
+        $("#PBuleBtn").click(function () {
+            $(".one").css("background-color", "#434f99");
+            $(".two").css("background-color", "#434f99");
+    
+        });
+    
+        $("#PurpleBtn").click(function () {
+            $(".one").css("background-color", "#6d398b");
+            $(".two").css("background-color", "#6d398b");
+    
+        });
+    
+        $("#BPurleBtn").click(function () {
+            $(".one").css("background-color", "#c5047c");
+            $(".two").css("background-color", "#c5047c");
+    
+        });
+    
+        $("#BlackBtn").click(function () {
+            $(".one").css("background-color", "#000000");
+            $(".two").css("background-color", "#000000");
+    
+        });
+    
+        $("#WhiteBtn").click(function () {
+            $(".one").css("background-color", "#FFFFFF");
+            $(".two").css("background-color", "#FFFFFF");
+    
+        });
+    
+    
+    
+    
+        function rgb2hex(rgb) {
+            rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/); function hex(x) { return ("0" + parseInt(x).toString(16)).slice(-2); } return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+        }
+    
+    
+        $("#one").click(function () {
+    
+            $("#TwoBar").css("display", "none");
+            $("#MixBar").css("display", "none");
+            $("#FourBar").css("display", "none");
+    
+            var RGB = $(".one").get(0).style.backgroundColor;
+            RGB = rgb2hex(RGB);
+    
+            if (RGB == "#e42421") {
+                $(".two").css("background-color", "#ff1618");
+            }
+            else if (RGB == "#eb621f") {
+                $(".two").css("background-color", "#ff6a12");
+            }
+            else if (RGB == "#f18e1c") {
+                $(".two").css("background-color", "#ffa200");
+            }
+            else if (RGB == "#fdc60c") {
+                $(".two").css("background-color", "#ffe100");
+            }
+            else if (RGB == "#f4e600") {
+                $(".two").css("background-color", "#feff00");
+            }
+            else if (RGB == "#8dbb25") {
+                $(".two").css("background-color", "#a0d610");
+            }
+            else if (RGB == "#008e5a") {
+                $(".two").css("background-color", "#00a260");
+            }
+            else if (RGB == "#0896bb") {
+                $(".two").css("background-color", "#00abd4");
+            }
+            else if (RGB == "#2b70b0") {
+                $(".two").css("background-color", "#207cc9");
+            }
+            else if (RGB == "#434f99") {
+                $(".two").css("background-color", "#4451ae");
+            }
+            else if (RGB == "#6d398b") {
+                $(".two").css("background-color", "#76399e");
+            }
+            else if (RGB == "#c5047c") {
+                $(".two").css("background-color", "#e0008c");
+            }
+            else if (RGB == "#000000") {
+                $(".two").css("background-color", "#8E8E8E");
+            }
+            else if (RGB == "#ffffff") {
+                $(".two").css("background-color", "#8E8E8E");
+            }
+    
+        });
+    
+        $("#two").click(function () {
+    
+            $("#MixBar").css("display", "none");
+            $("#FourBar").css("display", "none");
+            $("#TwoBar").css("display", "block");
+    
+            $("#2jo4au04nk4").click(function () { //對面色
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".one").css("background-color", "#e42421");
+                    $(".two").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".one").css("background-color", "#eb621f");
+                    $(".two").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".one").css("background-color", "#f18e1c");
+                    $(".two").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".one").css("background-color", "#fdc60c");
+                    $(".two").css("background-color", "#434f99");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".one").css("background-color", "#f4e600");
+                    $(".two").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".one").css("background-color", "#8dbb25");
+                    $(".two").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".one").css("background-color", "#008e5a");
+                    $(".two").css("background-color", "#e42421");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".one").css("background-color", "#0896bb");
+                    $(".two").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".one").css("background-color", "#2b70b0");
+                    $(".two").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#434f99") {
+                    $(".one").css("background-color", "#434f99");
+                    $(".two").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".one").css("background-color", "#6d398b");
+                    $(".two").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".one").css("background-color", "#c5047c");
+                    $(".two").css("background-color", "#8dbb25");
+                } else if (RGB == "#000000") {
+                    $(".one").css("background-color", "#000000");
+                    $(".two").css("background-color", "#FFFFFF");
+                } else if (RGB == "#ffffff") {
+                    $(".one").css("background-color", "#ffffff");
+                    $(".two").css("background-color", "#000000");
+                }
+    
+    
+            });
+    
+            $("#vu62jo4au04").click(function () { //斜對面
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".one").css("background-color", "#e42421");
+                    $(".two").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".one").css("background-color", "#eb621f");
+                    $(".two").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".one").css("background-color", "#f18e1c");
+                    $(".two").css("background-color", "#e42421");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".one").css("background-color", "#fdc60c");
+                    $(".two").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".one").css("background-color", "#f4e600");
+                    $(".two").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".one").css("background-color", "#8dbb25");
+                    $(".two").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".one").css("background-color", "#008e5a");
+                    $(".two").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".one").css("background-color", "#0896bb");
+                    $(".two").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".one").css("background-color", "#2b70b0");
+                    $(".two").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#434f99") {
+                    $(".one").css("background-color", "#434f99");
+                    $(".two").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".one").css("background-color", "#6d398b");
+                    $(".two").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".one").css("background-color", "#c5047c");
+                    $(".two").css("background-color", "#434f99");
+                }
+                else if (RGB == "#000000") {
+                    $(".one").css("background-color", "#000000");
+                    $(".two").css("background-color", "#5b5b5b");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".one").css("background-color", "#ffffff");
+                    $(".two").css("background-color", "#D0D0D0");
+                }
+    
+            });
+    
+            $("#q61u0nk4").click(function () { //旁邊色
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".one").css("background-color", "#e42421");
+                    $(".two").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".one").css("background-color", "#eb621f");
+                    $(".two").css("background-color", "#e42421");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".one").css("background-color", "#f18e1c");
+                    $(".two").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".one").css("background-color", "#fdc60c");
+                    $(".two").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".one").css("background-color", "#f4e600");
+                    $(".two").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".one").css("background-color", "#8dbb25");
+                    $(".two").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".one").css("background-color", "#008e5a");
+                    $(".two").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".one").css("background-color", "#0896bb");
+                    $(".two").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".one").css("background-color", "#2b70b0");
+                    $(".two").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#434f99") {
+                    $(".one").css("background-color", "#434f99");
+                    $(".two").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".one").css("background-color", "#6d398b");
+                    $(".two").css("background-color", "#434f99");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".one").css("background-color", "#c5047c");
+                    $(".two").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#000000") {
+                    $(".one").css("background-color", "#000000");
+                    $(".two").css("background-color", "#3c3c3c");
+                } else if (RGB == "#ffffff") {
+                    $(".one").css("background-color", "#ffffff");
+                    $(".two").css("background-color", "#F0F0F0");
+                }
+    
+            });
+    
+        });
+    
+    
+        $("#mix").click(function () {
+            $("#TwoBar").css("display", "none");
+            $("#FourBar").css("display", "none");
+            $("#MixBar").css("display", "block");
+    
+            $("#n0rul3vu").click(function () {//正三角形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".NewOne").css("background-color", "#e42421");
+                    $(".NewTwo").css("background-color", "#2b70b0");
+                    $(".NewThree").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".NewOne").css("background-color", "#eb621f");
+                    $(".NewTwo").css("background-color", "#434f99");
+                    $(".NewThree").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".NewOne").css("background-color", "#f18e1c");
+                    $(".NewTwo").css("background-color", "#6d398b");
+                    $(".NewThree").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".NewOne").css("background-color", "#fdc60c");
+                    $(".NewTwo").css("background-color", "#c5047c");
+                    $(".NewThree").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".NewOne").css("background-color", "#f4e600");
+                    $(".NewTwo").css("background-color", "#e42421");
+                    $(".NewThree").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".NewOne").css("background-color", "#8dbb25");
+                    $(".NewTwo").css("background-color", "#eb621f");
+                    $(".NewThree").css("background-color", "#434f99");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".NewOne").css("background-color", "#008e5a");
+                    $(".NewTwo").css("background-color", "#f18e1c");
+                    $(".NewThree").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".NewOne").css("background-color", "#0896bb");
+                    $(".NewTwo").css("background-color", "#fdc60c");
+                    $(".NewThree").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".NewOne").css("background-color", "#2b70b0");
+                    $(".NewTwo").css("background-color", "#f4e600");
+                    $(".NewThree").css("background-color", "#e42421");
+                }
+                else if (RGB == "#434f99") {
+                    $(".NewOne").css("background-color", "#434f99");
+                    $(".NewTwo").css("background-color", "#8dbb25");
+                    $(".NewThree").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".NewOne").css("background-color", "#6d398b");
+                    $(".NewTwo").css("background-color", "#008e5a");
+                    $(".NewThree").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".NewOne").css("background-color", "#c5047c");
+                    $(".NewTwo").css("background-color", "#0896bb");
+                    $(".NewThree").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#000000") {
+                    $(".NewOne").css("background-color", "#ffffff");
+                    $(".NewTwo").css("background-color", "#8E8E8E");
+                    $(".NewThree").css("background-color", "rgb(91, 91, 91)");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".NewOne").css("background-color", "#ffffff");
+                    $(".NewTwo").css("background-color", "#5b5b5b");
+                    $(".NewThree").css("background-color", "#d0D0D0");
+                }
+            });
+    
+            $("#23uln0rul3vu6").click(function () {//等腰三角形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".NewOne").css("background-color", "#e42421");
+                    $(".NewTwo").css("background-color", "#6d398b");
+                    $(".NewThree").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".NewOne").css("background-color", "#eb621f");
+                    $(".NewTwo").css("background-color", "#c5047c");
+                    $(".NewThree").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".NewOne").css("background-color", "#f18e1c");
+                    $(".NewTwo").css("background-color", "#e42421");
+                    $(".NewThree").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".NewOne").css("background-color", "#fdc60c");
+                    $(".NewTwo").css("background-color", "#eb621f");
+                    $(".NewThree").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".NewOne").css("background-color", "#f4e600");
+                    $(".NewTwo").css("background-color", "#f18e1c");
+                    $(".NewThree").css("background-color", "#434f99");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".NewOne").css("background-color", "#8dbb25");
+                    $(".NewTwo").css("background-color", "#fdc60c");
+                    $(".NewThree").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".NewOne").css("background-color", "#008e5a");
+                    $(".NewTwo").css("background-color", "#f4e600");
+                    $(".NewThree").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".NewOne").css("background-color", "#0896bb");
+                    $(".NewTwo").css("background-color", "#8dbb25");
+                    $(".NewThree").css("background-color", "#e42421");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".NewOne").css("background-color", "#2b70b0");
+                    $(".NewTwo").css("background-color", "#008e5a");
+                    $(".NewThree").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#434f99") {
+                    $(".NewOne").css("background-color", "#434f99");
+                    $(".NewTwo").css("background-color", "#0896bb");
+                    $(".NewThree").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".NewOne").css("background-color", "#6d398b");
+                    $(".NewTwo").css("background-color", "#2b70b0");
+                    $(".NewThree").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".NewOne").css("background-color", "#c5047c");
+                    $(".NewTwo").css("background-color", "#434f99");
+                    $(".NewThree").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#000000") {
+                    $(".NewOne").css("background-color", "#FFFFFF");
+                    $(".NewTwo").css("background-color", "#F0F0F0");
+                    $(".NewThree").css("background-color", "#3c3c3c");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".NewOne").css("background-color", "#ffffff");
+                    $(".NewTwo").css("background-color", "#3c3c3c");
+                    $(".NewThree").css("background-color", "#F0F0F0");
+                }
+            });
+    
+            $("#56rul3n0vul3vu6").click(function () {//直角三角形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".NewOne").css("background-color", "#e42421");
+                    $(".NewTwo").css("background-color", "#fdc60c");
+                    $(".NewThree").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".NewOne").css("background-color", "#eb621f");
+                    $(".NewTwo").css("background-color", "#f4e600");
+                    $(".NewThree").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".NewOne").css("background-color", "#f18e1c");
+                    $(".NewTwo").css("background-color", "#8dbb25");
+                    $(".NewThree").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".NewOne").css("background-color", "#fdc60c");
+                    $(".NewTwo").css("background-color", "#008e5a");
+                    $(".NewThree").css("background-color", "#434f99");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".NewOne").css("background-color", "#f4e600");
+                    $(".NewTwo").css("background-color", "#0896bb");
+                    $(".NewThree").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".NewOne").css("background-color", "#8dbb25");
+                    $(".NewTwo").css("background-color", "#2b70b0");
+                    $(".NewThree").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".NewOne").css("background-color", "#008e5a");
+                    $(".NewTwo").css("background-color", "#434f99");
+                    $(".NewThree").css("background-color", "#e42421");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".NewOne").css("background-color", "#0896bb");
+                    $(".NewTwo").css("background-color", "#6d398b");
+                    $(".NewThree").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".NewOne").css("background-color", "#2b70b0");
+                    $(".NewTwo").css("background-color", "#c5047c");
+                    $(".NewThree").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#434f99") {
+                    $(".NewOne").css("background-color", "#434f99");
+                    $(".NewTwo").css("background-color", "#0896bb");
+                    $(".NewThree").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".NewOne").css("background-color", "#6d398b");
+                    $(".NewTwo").css("background-color", "#eb621f");
+                    $(".NewThree").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".NewOne").css("background-color", "#c5047c");
+                    $(".NewTwo").css("background-color", "#f18e1c");
+                    $(".NewThree").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#000000") {
+                    $(".NewOne").css("background-color", "#000000");
+                    $(".NewTwo").css("background-color", "#8E8E8E");
+                    $(".NewThree").css("background-color", "#9D9D9D");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".NewOne").css("background-color", "#ffffff");
+                    $(".NewTwo").css("background-color", "#9D9D9D");
+                    $(".NewThree").css("background-color", "#8E8E8E");
+                }
+            });
+    
+            $("#2jp4rul3n0rul3vu6").click(function () {//鈍角三角形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".NewOne").css("background-color", "#e42421");
+                    $(".NewTwo").css("background-color", "#f18e1c");
+                    $(".NewThree").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".NewOne").css("background-color", "#eb621f");
+                    $(".NewTwo").css("background-color", "#fdc60c");
+                    $(".NewThree").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".NewOne").css("background-color", "#f18e1c");
+                    $(".NewTwo").css("background-color", "#f4e600");
+                    $(".NewThree").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".NewOne").css("background-color", "#fdc60c");
+                    $(".NewTwo").css("background-color", "#8dbb25");
+                    $(".NewThree").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".NewOne").css("background-color", "#f4e600");
+                    $(".NewTwo").css("background-color", "#008e5a");
+                    $(".NewThree").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".NewOne").css("background-color", "#8dbb25");
+                    $(".NewTwo").css("background-color", "#0896bb");
+                    $(".NewThree").css("background-color", "#434f99");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".NewOne").css("background-color", "#008e5a");
+                    $(".NewTwo").css("background-color", "#2b70b0");
+                    $(".NewThree").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".NewOne").css("background-color", "#0896bb");
+                    $(".NewTwo").css("background-color", "#434f99");
+                    $(".NewThree").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".NewOne").css("background-color", "#2b70b0");
+                    $(".NewTwo").css("background-color", "#6d398b");
+                    $(".NewThree").css("background-color", "#e42421");
+                }
+                else if (RGB == "#434f99") {
+                    $(".NewOne").css("background-color", "#434f99");
+                    $(".NewTwo").css("background-color", "#c5047c");
+                    $(".NewThree").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".NewOne").css("background-color", "#6d398b");
+                    $(".NewTwo").css("background-color", "#e42421");
+                    $(".NewThree").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".NewOne").css("background-color", "#c5047c");
+                    $(".NewTwo").css("background-color", "#eb621f");
+                    $(".NewThree").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#000000") {
+                    $(".NewOne").css("background-color", "#000000");
+                    $(".NewTwo").css("background-color", "#5b5b5b");
+                    $(".NewThree").css("background-color", "#d0D0D0");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".NewOne").css("background-color", "#ffffff");
+                    $(".NewTwo").css("background-color", "#d0d0d0");
+                    $(".NewThree").css("background-color", "#5b5b5b");
+                }
+            });
+    
+            $("#vuxup6nk4n0nk4").click(function () { //相鄰三色
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".NewOne").css("background-color", "#e42421");
+                    $(".NewTwo").css("background-color", "#eb621f");
+                    $(".NewThree").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".NewOne").css("background-color", "#eb621f");
+                    $(".NewTwo").css("background-color", "#f18e1c");
+                    $(".NewThree").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".NewOne").css("background-color", "#f18e1c");
+                    $(".NewTwo").css("background-color", "#fdc60c");
+                    $(".NewThree").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".NewOne").css("background-color", "#fdc60c");
+                    $(".NewTwo").css("background-color", "#f4e600");
+                    $(".NewThree").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".NewOne").css("background-color", "#f4e600");
+                    $(".NewTwo").css("background-color", "#8dbb25");
+                    $(".NewThree").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".NewOne").css("background-color", "#8dbb25");
+                    $(".NewTwo").css("background-color", "#008e5a");
+                    $(".NewThree").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".NewOne").css("background-color", "#008e5a");
+                    $(".NewTwo").css("background-color", "#0896bb");
+                    $(".NewThree").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".NewOne").css("background-color", "#0896bb");
+                    $(".NewTwo").css("background-color", "#2b70b0");
+                    $(".NewThree").css("background-color", "#434f99");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".NewOne").css("background-color", "#2b70b0");
+                    $(".NewTwo").css("background-color", "#434f99");
+                    $(".NewThree").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#434f99") {
+                    $(".NewOne").css("background-color", "#434f99");
+                    $(".NewTwo").css("background-color", "#6d398b");
+                    $(".NewThree").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".NewOne").css("background-color", "#6d398b");
+                    $(".NewTwo").css("background-color", "#c5047c");
+                    $(".NewThree").css("background-color", "#e42421");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".NewOne").css("background-color", "#c5047c");
+                    $(".NewTwo").css("background-color", "#e42421");
+                    $(".NewThree").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#000000") {
+                    $(".NewOne").css("background-color", "#000000");
+                    $(".NewTwo").css("background-color", "#3c3c3c");
+                    $(".NewThree").css("background-color", "#5b5b5b");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".NewOne").css("background-color", "#ffffff");
+                    $(".NewTwo").css("background-color", "#f0f0f0");
+                    $(".NewThree").css("background-color", "#d0d0d0");
+                }
+            });
+    
+    
+        });
+    
+        $("#FourMix").click(function () {
+            $("#TwoBar").css("display", "none");
+            $("#MixBar").css("display", "none");
+            $("#FourBar").css("display", "block");
+    
+            $("#dj0t6zvu6").click(function () { //寬長方形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".TOne").css("background-color", "#e42421");
+                    $(".TTwo").css("background-color", "#f18e1c");
+                    $(".TThree").css("background-color", "#008e5a");
+                    $(".TFour").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".TOne").css("background-color", "#eb621f");
+                    $(".TTwo").css("background-color", "#fdc60c");
+                    $(".TThree").css("background-color", "#0896bb");
+                    $(".TFour").css("background-color", "#434f99");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".TOne").css("background-color", "#f18e1c");
+                    $(".TTwo").css("background-color", "#f4e600");
+                    $(".TThree").css("background-color", "#2b70b0");
+                    $(".TFour").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".TOne").css("background-color", "#fdc60c");
+                    $(".TTwo").css("background-color", "#8dbb25");
+                    $(".TThree").css("background-color", "#434f99");
+                    $(".TFour").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".TOne").css("background-color", "#f4e600");
+                    $(".TTwo").css("background-color", "#008e5a");
+                    $(".TThree").css("background-color", "#6d398b");
+                    $(".TFour").css("background-color", "#e42421");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".TOne").css("background-color", "#8dbb25");
+                    $(".TTwo").css("background-color", "#0896bb");
+                    $(".TThree").css("background-color", "#c5047c");
+                    $(".TFour").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".TOne").css("background-color", "#008e5a");
+                    $(".TTwo").css("background-color", "#2b70b0");
+                    $(".TThree").css("background-color", "#e42421");
+                    $(".TFour").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".TOne").css("background-color", "#0896bb");
+                    $(".TTwo").css("background-color", "#434f99");
+                    $(".TThree").css("background-color", "#eb621f");
+                    $(".TFour").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".TOne").css("background-color", "#2b70b0");
+                    $(".TTwo").css("background-color", "#6d398b");
+                    $(".TThree").css("background-color", "#f18e1c");
+                    $(".TFour").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#434f99") {
+                    $(".TOne").css("background-color", "#434f99");
+                    $(".TTwo").css("background-color", "#c5047c");
+                    $(".TThree").css("background-color", "#fdc60c");
+                    $(".TFour").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".TOne").css("background-color", "#6d398b");
+                    $(".TTwo").css("background-color", "#e42421");
+                    $(".TThree").css("background-color", "#f4e600");
+                    $(".TFour").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".TOne").css("background-color", "#c5047c");
+                    $(".TTwo").css("background-color", "#eb621f");
+                    $(".TThree").css("background-color", "#8dbb25");
+                    $(".TFour").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#000000") {
+                    $(".TOne").css("background-color", "#000000");
+                    $(".TTwo").css("background-color", "#3c3c3c");
+                    $(".TThree").css("background-color", "#ffffff");
+                    $(".TFour").css("background-color", "#3c3c3c");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".TOne").css("background-color", "#FFFFFF");
+                    $(".TTwo").css("background-color", "#3c3c3c");
+                    $(".TThree").css("background-color", "#000000");
+                    $(".TFour").css("background-color", "#3c3c3c");
+                }
+            });
+    
+            $("#593t6zvu6").click(function () {//窄長方形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".TOne").css("background-color", "#e42421");
+                    $(".TTwo").css("background-color", "#eb621f");
+                    $(".TThree").css("background-color", "#8dbb25");
+                    $(".TFour").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".TOne").css("background-color", "#eb621f");
+                    $(".TTwo").css("background-color", "#f18e1c");
+                    $(".TThree").css("background-color", "#008e5a");
+                    $(".TFour").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".TOne").css("background-color", "#f18e1c");
+                    $(".TTwo").css("background-color", "#fdc60c");
+                    $(".TThree").css("background-color", "#0896bb");
+                    $(".TFour").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".TOne").css("background-color", "#fdc60c");
+                    $(".TTwo").css("background-color", "#f4e600");
+                    $(".TThree").css("background-color", "#2b70b0");
+                    $(".TFour").css("background-color", "#434f99");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".TOne").css("background-color", "#f4e600");
+                    $(".TTwo").css("background-color", "#8dbb25");
+                    $(".TThree").css("background-color", "#434f99");
+                    $(".TFour").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".TOne").css("background-color", "#8dbb25");
+                    $(".TTwo").css("background-color", "#008e5a");
+                    $(".TThree").css("background-color", "#6d398b");
+                    $(".TFour").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".TOne").css("background-color", "#008e5a");
+                    $(".TTwo").css("background-color", "#0896bb");
+                    $(".TThree").css("background-color", "#c5047c");
+                    $(".TFour").css("background-color", "#e42421");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".TOne").css("background-color", "#0896bb");
+                    $(".TTwo").css("background-color", "#2b70b0");
+                    $(".TThree").css("background-color", "#e42421");
+                    $(".TFour").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".TOne").css("background-color", "#2b70b0");
+                    $(".TTwo").css("background-color", "#434f99");
+                    $(".TThree").css("background-color", "#eb621f");
+                    $(".TFour").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#434f99") {
+                    $(".TOne").css("background-color", "#434f99");
+                    $(".TTwo").css("background-color", "#6d398b");
+                    $(".TThree").css("background-color", "#f18e1c");
+                    $(".TFour").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".TOne").css("background-color", "#6d398b");
+                    $(".TTwo").css("background-color", "#c5047c");
+                    $(".TThree").css("background-color", "#fdc60c");
+                    $(".TFour").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".TOne").css("background-color", "#c5047c");
+                    $(".TTwo").css("background-color", "#e42421");
+                    $(".TThree").css("background-color", "#f4e600");
+                    $(".TFour").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#000000") {
+                    $(".TOne").css("background-color", "#000000");
+                    $(".TTwo").css("background-color", "#f0f0f0");
+                    $(".TThree").css("background-color", "#ffffff");
+                    $(".TFour").css("background-color", "#f0f0f0");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".TOne").css("background-color", "#FFFFFF");
+                    $(".TTwo").css("background-color", "#f0f0f0");
+                    $(".TThree").css("background-color", "#000000");
+                    $(".TFour").css("background-color", "#f0f0f0");
+                }
+            });
+    
+    
+            $("#yjo4vul3wuvu6").click(function () {//最小梯形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".TOne").css("background-color", "#e42421");
+                    $(".TTwo").css("background-color", "#eb621f");
+                    $(".TThree").css("background-color", "#f18e1c");
+                    $(".TFour").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".TOne").css("background-color", "#eb621f");
+                    $(".TTwo").css("background-color", "#f18e1c");
+                    $(".TThree").css("background-color", "#fdc60c");
+                    $(".TFour").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".TOne").css("background-color", "#f18e1c");
+                    $(".TTwo").css("background-color", "#fdc60c");
+                    $(".TThree").css("background-color", "#f4e600");
+                    $(".TFour").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".TOne").css("background-color", "#fdc60c");
+                    $(".TTwo").css("background-color", "#f4e600");
+                    $(".TThree").css("background-color", "#8dbb25");
+                    $(".TFour").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".TOne").css("background-color", "#f4e600");
+                    $(".TTwo").css("background-color", "#8dbb25");
+                    $(".TThree").css("background-color", "#008e5a");
+                    $(".TFour").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".TOne").css("background-color", "#8dbb25");
+                    $(".TTwo").css("background-color", "#008e5a");
+                    $(".TThree").css("background-color", "#0896bb");
+                    $(".TFour").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".TOne").css("background-color", "#008e5a");
+                    $(".TTwo").css("background-color", "#0896bb");
+                    $(".TThree").css("background-color", "#2b70b0");
+                    $(".TFour").css("background-color", "#434f99");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".TOne").css("background-color", "#0896bb");
+                    $(".TTwo").css("background-color", "#2b70b0");
+                    $(".TThree").css("background-color", "#434f99");
+                    $(".TFour").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".TOne").css("background-color", "#2b70b0");
+                    $(".TTwo").css("background-color", "#434f99");
+                    $(".TThree").css("background-color", "#6d398b");
+                    $(".TFour").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#434f99") {
+                    $(".TOne").css("background-color", "#434f99");
+                    $(".TTwo").css("background-color", "#6d398b");
+                    $(".TThree").css("background-color", "#c5047c");
+                    $(".TFour").css("background-color", "#e42421");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".TOne").css("background-color", "#6d398b");
+                    $(".TTwo").css("background-color", "#c5047c");
+                    $(".TThree").css("background-color", "#e42421");
+                    $(".TFour").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".TOne").css("background-color", "#c5047c");
+                    $(".TTwo").css("background-color", "#e42421");
+                    $(".TThree").css("background-color", "#eb621f");
+                    $(".TFour").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#000000") {
+                    $(".TOne").css("background-color", "#000000");
+                    $(".TTwo").css("background-color", "#d0D0D0");
+                    $(".TThree").css("background-color", "#5b5b5b");
+                    $(".TFour").css("background-color", "#FFFFFF");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".TOne").css("background-color", "#FFFFFF");
+                    $(".TTwo").css("background-color", "#5b5b5b");
+                    $(".TThree").css("background-color", "#d0D0D0");
+                    $(".TFour").css("background-color", "#000000");
+                }
+            });
+    
+            $("#yjo4284wuvu6").click(function () {//最大梯形
+                var RGB = $(".one").get(0).style.backgroundColor;
+                RGB = rgb2hex(RGB);
+    
+                if (RGB == "#e42421") {
+                    $(".TOne").css("background-color", "#e42421");
+                    $(".TTwo").css("background-color", "#fdc60c");
+                    $(".TThree").css("background-color", "#8dbb25");
+                    $(".TFour").css("background-color", "#2b70b0");
+                }
+                else if (RGB == "#eb621f") {
+                    $(".TOne").css("background-color", "#eb621f");
+                    $(".TTwo").css("background-color", "#f4e600");
+                    $(".TThree").css("background-color", "#008e5a");
+                    $(".TFour").css("background-color", "#434f99");
+                }
+                else if (RGB == "#f18e1c") {
+                    $(".TOne").css("background-color", "#f18e1c");
+                    $(".TTwo").css("background-color", "#8dbb25");
+                    $(".TThree").css("background-color", "#0896bb");
+                    $(".TFour").css("background-color", "#6d398b");
+                }
+                else if (RGB == "#fdc60c") {
+                    $(".TOne").css("background-color", "#fdc60c");
+                    $(".TTwo").css("background-color", "#008e5a");
+                    $(".TThree").css("background-color", "#2b70b0");
+                    $(".TFour").css("background-color", "#c5047c");
+                }
+                else if (RGB == "#f4e600") {
+                    $(".TOne").css("background-color", "#f4e600");
+                    $(".TTwo").css("background-color", "#0896bb");
+                    $(".TThree").css("background-color", "#434f99");
+                    $(".TFour").css("background-color", "#e42421");
+                }
+                else if (RGB == "#8dbb25") {
+                    $(".TOne").css("background-color", "#8dbb25");
+                    $(".TTwo").css("background-color", "#2b70b0");
+                    $(".TThree").css("background-color", "#6d398b");
+                    $(".TFour").css("background-color", "#eb621f");
+                }
+                else if (RGB == "#008e5a") {
+                    $(".TOne").css("background-color", "#008e5a");
+                    $(".TTwo").css("background-color", "#434f99");
+                    $(".TThree").css("background-color", "#c5047c");
+                    $(".TFour").css("background-color", "#f18e1c");
+                }
+                else if (RGB == "#0896bb") {
+                    $(".TOne").css("background-color", "#0896bb");
+                    $(".TTwo").css("background-color", "#6d398b");
+                    $(".TThree").css("background-color", "#e42421");
+                    $(".TFour").css("background-color", "#fdc60c");
+                }
+                else if (RGB == "#2b70b0") {
+                    $(".TOne").css("background-color", "#2b70b0");
+                    $(".TTwo").css("background-color", "#c5047c");
+                    $(".TThree").css("background-color", "#eb621f");
+                    $(".TFour").css("background-color", "#f4e600");
+                }
+                else if (RGB == "#434f99") {
+                    $(".TOne").css("background-color", "#434f99");
+                    $(".TTwo").css("background-color", "#e42421");
+                    $(".TThree").css("background-color", "#f18e1c");
+                    $(".TFour").css("background-color", "#8dbb25");
+                }
+                else if (RGB == "#6d398b") {
+                    $(".TOne").css("background-color", "#6d398b");
+                    $(".TTwo").css("background-color", "#eb621f");
+                    $(".TThree").css("background-color", "#fdc60c");
+                    $(".TFour").css("background-color", "#008e5a");
+                }
+                else if (RGB == "#c5047c") {
+                    $(".TOne").css("background-color", "#c5047c");
+                    $(".TTwo").css("background-color", "#f18e1c");
+                    $(".TThree").css("background-color", "#f4e600");
+                    $(".TFour").css("background-color", "#0896bb");
+                }
+                else if (RGB == "#000000") {
+                    $(".TOne").css("background-color", "#000000");
+                    $(".TTwo").css("background-color", "#5b5b5b");
+                    $(".TThree").css("background-color", "#d0d0d0");
+                    $(".TFour").css("background-color", "#FFFFFF");
+                }
+                else if (RGB == "#ffffff") {
+                    $(".TOne").css("background-color", "#FFFFFF");
+                    $(".TTwo").css("background-color", "#d0d0d0");
+                    $(".TThree").css("background-color", "#5b5b5b");
+                    $(".TFour").css("background-color", "#000000");
+                }
+            });
+    
+    
+    
+    
+        });
+    
+    
+    </script>
+    
+    </html>
